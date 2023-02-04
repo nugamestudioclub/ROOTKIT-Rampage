@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _lookInput = new Vector2(0, 1);
+        GameState.Instance.EnemyTarget = gameObject;
     }
 
     private void Update()
@@ -109,6 +110,7 @@ public class PlayerController : MonoBehaviour
         _lookAngle = Mathf.Atan2(_lookInput.x, -_lookInput.y) * Mathf.Rad2Deg;
         rotator.rotation = Quaternion.Euler(0, 0, _lookAngle);
         #endregion
+
     }
 
     public void Shoot()
