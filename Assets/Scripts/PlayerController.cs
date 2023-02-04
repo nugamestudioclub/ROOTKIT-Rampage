@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
 
     [SerializeField]
-    private Vector2 _moveInput;
+    public Vector2 _moveInput;
 
     [SerializeField]
     private float _moveSpeed;
@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("start");
         _rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
+        Debug.Log("test");
         _moveInput = context.ReadValue<Vector2>();
     }
 }
