@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 5267810435370575413}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -267,12 +267,17 @@ MonoBehaviour:
   rotator: {fileID: 5267810434223952846}
   barrel: {fileID: 5267810436110897941}
   bullet: {fileID: 2470990887804906141, guid: e936d28b1ba3cd64cab9aa441985b327, type: 3}
+  decoy: {fileID: 3135623770860038089, guid: 2467e371afa9f5b47b86c75a2df0347f, type: 3}
+  barrier: {fileID: 3666116030178074201, guid: c8c28ec1269317b4683cd3f721cd194f, type: 3}
   _moveInput: {x: 0, y: 0}
   _lookInput: {x: 0, y: 0}
   _lookAngle: 0
   _moveSpeed: 50
   _fireSpeed: 10
   _fireCooldown: 0.3
+  _hackCooldown: 10
+  _decoyCooldown: 15
+  _barrierCooldown: 5
 --- !u!1 &5267810436110897942
 GameObject:
   m_ObjectHideFlags: 0
