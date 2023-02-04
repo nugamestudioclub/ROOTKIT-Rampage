@@ -8,13 +8,17 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
 
     [SerializeField]
-    public Vector2 _moveInput;
+    private Vector2 _moveInput;
+    [SerializeField]
+    private Vector2 _lookInput;
 
     [SerializeField]
     private float _moveSpeed;
 
     private float _xMoveInput;
     private float _yMoveInput;
+    private float _xLookInput;
+    private float _yLookInput;
     
     // Start is called before the first frame update
     void Start()
@@ -61,5 +65,10 @@ public class PlayerController : MonoBehaviour
         #region MOVEMENT
         _rb.AddForce(_moveInput * _moveSpeed);
         #endregion
+    }
+
+    public void Shoot()
+    {
+
     }
 }
