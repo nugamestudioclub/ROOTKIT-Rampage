@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public Transform rotator;
     public Transform barrel;
+
+    public GameObject bullet;
     
     private Rigidbody2D _rb;
 
@@ -19,11 +21,16 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float _moveSpeed;
+    [SerializeField]
+    private float _fireSpeed;
+    [SerializeField]
+    private float _fireCooldown;
 
     private float _xMoveInput;
     private float _yMoveInput;
     private float _xLookInput;
     private float _yLookInput;
+    private float _lastFireTime;
     
     // Start is called before the first frame update
     void Start()
@@ -96,6 +103,14 @@ public class PlayerController : MonoBehaviour
             _lookInput = new Vector2(_xLookInput, _yLookInput).normalized;
         }
         #endregion
+
+        #region GETTING SHOOT INPUTS
+        if(Input.GetKey(KeyCode.Space) && Time.time > _lastFireTime + _fireCooldown)
+        {
+            Shoot();
+            _lastFireTime = Time.time;
+        }
+        #endregion
     }
 
     // Update is called once per framew
@@ -113,6 +128,7 @@ public class PlayerController : MonoBehaviour
 
     public void Shoot()
     {
-
+        GameObject firedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
+        firedBullet.GetComponent<Rigidbody2D>().velocity = barrel.up * -_fireSpeed;
     }
 }
