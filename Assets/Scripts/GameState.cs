@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
+
     public GameObject EnemyTarget {
         get => target;
-        set => EnemyTarget = value;
+        set => target = value;
     }
 
     public int PlayerHealth { get; private set; }
