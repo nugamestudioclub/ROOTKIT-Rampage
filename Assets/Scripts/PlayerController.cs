@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _lookInput = new Vector2(0, 1);
+        GameState.Instance.EnemyTarget = gameObject;
     }
 
     private void Update()
