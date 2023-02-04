@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 251562131831d5e4da8b81f7adc18b61
+guid: 2e8686e1df50e724c80dda92f40eb632
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,49 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: zombie-idle_0
+      name: stun-indicator_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9087582e43b37f54bb64c891090657ff
+      internalID: -688985874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stun-indicator_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0561f4fdb4e95724fa033f01a5e0d967
+      internalID: -645217366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stun-indicator_2
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +161,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0f894a47ff11ff45ba3029286f4cdf2
-      internalID: -1528099846
+      spriteID: 21af261c632471c44a38fa38d8c976f7
+      internalID: 425766245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: zombie-idle_1
+      name: stun-indicator_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a02405d23c974047ac08c04009eb96f
+      internalID: -1725093617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stun-indicator_4
       rect:
         serializedVersion: 2
         x: 0
@@ -140,8 +203,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d26e16aa1721bab469bdb5b0d8c58797
-      internalID: 443285755
+      spriteID: d4b3090195efbf24483e1c82268feb81
+      internalID: 948367110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stun-indicator_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f1b61e2252fbd478fbd34f9a6dde72
+      internalID: 1866911759
       vertices: []
       indices: 
       edges: []
@@ -157,8 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      zombie-idle_0: -1528099846
-      zombie-idle_1: 443285755
+      stun-indicator_2: 425766245
+      stun-indicator_3: -1725093617
+      stun-indicator_5: 1866911759
+      stun-indicator_1: -645217366
+      stun-indicator_0: -688985874
+      stun-indicator_4: 948367110
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
