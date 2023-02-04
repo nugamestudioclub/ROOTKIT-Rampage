@@ -5,18 +5,26 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    private Rigidbody2D _rb;
+
+    [SerializeField]
     private Vector2 _moveInput;
+
+    [SerializeField]
+    private float _moveSpeed;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        _rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        #region MOVEMENT
+        _rb.AddForce(_moveInput * _moveSpeed);
+        #endregion
     }
 
     public void Move(InputAction.CallbackContext context)
