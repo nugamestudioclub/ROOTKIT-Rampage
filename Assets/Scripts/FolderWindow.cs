@@ -52,7 +52,7 @@ public class FolderWindow : MonoBehaviour {
 			return false;
 		}
 		for( int i = 0; i < transitions.Length; ++i ) {
-			if( string.Equals(folderName, transitions[i].Destination.FolderName, StringComparison.OrdinalIgnoreCase) ) {
+			if( transitions[i].Destination != null && string.Equals(folderName, transitions[i].Destination.FolderName, StringComparison.OrdinalIgnoreCase) ) {
 				transition = transitions[i];
 				return true;
 			}
