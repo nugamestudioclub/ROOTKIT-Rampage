@@ -10,7 +10,7 @@ public class EnemyBullet : MonoBehaviour
     private int damage = 1;
 
     private int _spriteMode;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,8 @@ public class EnemyBullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == playerLayer)
+        var obj = collision.gameObject;
+        if (obj.layer == playerLayer && obj.CompareTag("Player"))
         {
             GameState.Instance.DamagePlayer(damage);
         }
