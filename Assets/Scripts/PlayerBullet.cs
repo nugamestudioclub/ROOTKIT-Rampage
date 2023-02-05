@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
+    public int geometryLayer;
+    public int enemyLayer;
+    
     public Sprite sprite0;
     public Sprite sprite1;
     
@@ -33,6 +36,18 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if(collision.gameObject.layer == geometryLayer)
+        {
+            Destroy(gameObject);
+        }
+        /* TODO: Reimplement this once Enemy is a working class
+        if(collision.gameObject.layer == enemyLayer)
+        {
+            Enemy enemy;
+            if(collision.gameObject.TryGetComponent<>(out enemy))
+            {
+                enemy.Stun();
+            }
+        }*/
     }
 }

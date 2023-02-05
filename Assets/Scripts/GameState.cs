@@ -12,6 +12,12 @@ public class GameState : MonoBehaviour
         set => target = value;
     }
 
+    public float HackCooldown { get; set; }
+    public float DecoyCooldown { get; set; }
+    public float BarrierCooldown { get; set; }
+
+
+
     public int PlayerHealth { get; private set; }
     [SerializeField]
     private int maxPlayerHealth = 3;
@@ -27,6 +33,12 @@ public class GameState : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             Instance = this;
         }
+    }
+    private void Update()
+    {
+        //Debug.Log($"Hack CD {HackCooldown}");
+        //Debug.Log($"Decoy CD {DecoyCooldown}");
+        //Debug.Log($"Barrier CD {BarrierCooldown}");
     }
 
     public GameObject FindPlayer()
