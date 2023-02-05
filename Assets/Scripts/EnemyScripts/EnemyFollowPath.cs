@@ -7,7 +7,8 @@ public class EnemyFollowPath : Enemy
 {
 
     public PathCreator pathCreator;
-
+    [SerializeField]
+    private PathCreation.EndOfPathInstruction _pathInstruction = PathCreation.EndOfPathInstruction.Reverse;
     [SerializeField]
     private float _speed = 3;
     [SerializeField]
@@ -17,8 +18,8 @@ public class EnemyFollowPath : Enemy
     protected override void EnemyUpdate()
     {
         _distanceTraveled += _speed * Time.deltaTime;
-        this.transform.position = pathCreator.path.GetPointAtDistance(_distanceTraveled);
-        Vector3 dir = pathCreator.path.GetDirectionAtDistance(_distanceTraveled);
+        this.transform.position = pathCreator.path.GetPointAtDistance(_distanceTraveled, _pathInstruction);
+        Vector3 dir = pathCreator.path.GetDirectionAtDistance(_distanceTraveled, _pathInstruction);
         float deg  = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, deg);
     }
