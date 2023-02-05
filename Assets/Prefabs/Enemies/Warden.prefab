@@ -106,7 +106,7 @@ MonoBehaviour:
   isStunned: 0
   stunDuration: 5
   stunTimer: 0
-  sr: {fileID: 0}
+  sr: {fileID: 2631854898581306702}
   stunRenderer: {fileID: 2027645040389310298}
   _speed: 1
 --- !u!114 &9089247190337668535
