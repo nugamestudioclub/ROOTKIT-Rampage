@@ -18,6 +18,10 @@ public class EnemyFollowPath : Enemy
     protected override void EnemyUpdate()
     {
         _distanceTraveled += _speed * Time.deltaTime;
+        if (pathCreator == null)
+        {
+            Debug.Log($"path creator of {name} isnt set");
+        }
         this.transform.position = pathCreator.path.GetPointAtDistance(_distanceTraveled, _pathInstruction);
         Vector3 dir = pathCreator.path.GetDirectionAtDistance(_distanceTraveled, _pathInstruction);
         float deg  = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
