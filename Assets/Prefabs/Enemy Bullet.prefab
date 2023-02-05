@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2470990887804906142}
   - component: {fileID: 2470990887804906143}
   - component: {fileID: 3917496203479684861}
-  - component: {fileID: 7356271333596197266}
   - component: {fileID: 5874047420263440615}
+  - component: {fileID: -7459914533981900274}
   m_Layer: 8
   m_Name: Enemy Bullet
   m_TagString: Untagged
@@ -110,22 +110,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7356271333596197266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2470990887804906141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b58b7a5901d85764ca48466fc7a5df58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  geometryLayer: 3
-  enemyLayer: 7
-  sprite0: {fileID: 21300000, guid: 720d84e4e32b51c4a9ba117cb3f811f6, type: 3}
-  sprite1: {fileID: 21300000, guid: 49b46d269ac8fd842858134e3ca1d65c, type: 3}
 --- !u!58 &5874047420263440615
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -142,6 +126,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!114 &-7459914533981900274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2470990887804906141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63fbbe4d6886ce44391ff3a135dbdb60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLayer: 10
+  sprite0: {fileID: 21300000, guid: 720d84e4e32b51c4a9ba117cb3f811f6, type: 3}
+  sprite1: {fileID: 21300000, guid: 49b46d269ac8fd842858134e3ca1d65c, type: 3}
+  damage: 1
 --- !u!1 &4496210089227912917
 GameObject:
   m_ObjectHideFlags: 0
