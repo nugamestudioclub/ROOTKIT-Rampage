@@ -165,7 +165,6 @@ public class PlayerController : MonoBehaviour
 
     void Die() {
         _dead = true;
-        Debug.Log("die");
         animator.Play("Dying");
     }
 
