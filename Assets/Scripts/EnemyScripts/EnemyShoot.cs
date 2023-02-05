@@ -19,6 +19,7 @@ public class EnemyShoot : Enemy
     // Update is called once per frame
     protected override void EnemyUpdate()
     {
+        TurnToPlayer();
         _timer += Time.deltaTime;
         if (_timer > _cooldownTime)
         {
@@ -47,6 +48,12 @@ public class EnemyShoot : Enemy
         }
     }
 
+    void TurnToPlayer()
+    {
+        Vector2 thisPos = this.transform.position;
+        Vector2 toPlayer = GetPlayerPosition() - thisPos;
+        sr.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(toPlayer.y, toPlayer.x) * Mathf.Rad2Deg - 90);
+    }
     Vector2 GetPlayerPosition()
     {
         return GameState.Instance.EnemyTarget.transform.position; ;
