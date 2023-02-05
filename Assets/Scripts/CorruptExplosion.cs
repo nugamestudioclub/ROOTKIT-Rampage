@@ -14,6 +14,7 @@ public class CorruptExplosion : MonoBehaviour
     void Awake()
     {
         remainingLifetime = lifetime;
+        AudioManager.Instance.Explosion();
     }
 
     // Update is called once per frame

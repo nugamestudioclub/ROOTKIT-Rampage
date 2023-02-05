@@ -38,4 +38,14 @@ public class AudioManager : MonoBehaviour
     {
         _audioSource.PlayOneShot(_clips[0]);
     }
+
+    public void DialUp()
+    {
+        _audioSource.PlayOneShot(_clips[5]);
+    }
+
+    public void Explosion()
+    {
+        _audioSource.PlayOneShot(_clips[6]);
+    }
 }

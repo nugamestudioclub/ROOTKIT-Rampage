@@ -215,6 +215,7 @@ public class PlayerController : MonoBehaviour
         if (ShouldHack() && collision.TryGetComponent(out file))
         {
             file.Hack();
+            AudioManager.Instance.DialUp();
         }
         Enemy enemy;
         if (collision.TryGetComponent(out enemy))
