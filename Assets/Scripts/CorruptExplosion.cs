@@ -10,7 +10,7 @@ public class CorruptExplosion : MonoBehaviour
     private float lifetime = 1.5f;
     private float remainingLifetime;
 
-    private List<Collider2D> hitlist;
+    private List<Collider2D> hitlist = new List<Collider2D>();
     void Awake()
     {
         remainingLifetime = lifetime;
@@ -27,7 +27,7 @@ public class CorruptExplosion : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (!hitlist.Contains(collision))
         {
