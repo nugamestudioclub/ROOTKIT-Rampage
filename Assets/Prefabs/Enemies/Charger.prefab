@@ -53,8 +53,7 @@ MonoBehaviour:
   stunTimer: 0
   _chargeSpeed: 5
   _cooldownTime: 3
-  _state: 0
-  _timer: 0
+  _state: 1
 --- !u!50 &4803606796197258792
 Rigidbody2D:
   serializedVersion: 4
