@@ -51,7 +51,8 @@ MonoBehaviour:
   isStunned: 0
   stunDuration: 5
   stunTimer: 0
-  _chargeSpeed: 5
+  _chargeSpeed: 7
+  _chargeTime: 3
   _cooldownTime: 3
   _state: 1
 --- !u!50 &4803606796197258792
