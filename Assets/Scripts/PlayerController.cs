@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject firedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
+        GameObject firedBullet = Instantiate(bullet, barrel.position, Quaternion.identity);
         firedBullet.GetComponent<Rigidbody2D>().velocity = barrel.up * -_fireSpeed;
     }
 }
