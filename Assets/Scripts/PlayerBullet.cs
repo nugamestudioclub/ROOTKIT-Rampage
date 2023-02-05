@@ -6,14 +6,14 @@ public class PlayerBullet : MonoBehaviour
 {
     public int geometryLayer;
     public int enemyLayer;
-    
+
     public Sprite sprite0;
     public Sprite sprite1;
-    
+
     private SpriteRenderer _spriteRenderer;
 
     private int _spriteMode;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,17 +32,15 @@ public class PlayerBullet : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == enemyLayer)
+        var obj = collision.gameObject;
+        if (obj.layer == enemyLayer)
         {
-            Enemy enemy;
-            if (collision.gameObject.TryGetComponent(out enemy))
-            {
+            foreach (var enemy in obj.GetComponents<Enemy>())
                 enemy.Stun();
-            }
         }
 
         Destroy(gameObject);
