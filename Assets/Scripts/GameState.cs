@@ -82,6 +82,7 @@ public class GameState : MonoBehaviour
     {
         if (lastDamage + invincibilityTime < Time.time)
         {
+            AudioManager.Instance.Damage();
             PlayerHealth -= value;
             if (PlayerHealth <= 0 && !playerDead)
             {
