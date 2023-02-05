@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,17 +23,20 @@ public class GameState : MonoBehaviour
 
     [SerializeField]
     private int keysRequired;
+    public int KeysRequired {
+        get => keysRequired;  
+    }
 
-    private int keyCount;
+    public int KeyCount { get; private set; }
 
     [SerializeField]
     private float deathFadeoutTimer;
 
     public void CollectKey()
     {
-        ++keyCount;
+        ++KeyCount;
         if (exit != null)
-            exit.Locked = keyCount < keysRequired;
+            exit.Locked = KeyCount < keysRequired;
     }
 
     public int PlayerHealth { get; private set; }
