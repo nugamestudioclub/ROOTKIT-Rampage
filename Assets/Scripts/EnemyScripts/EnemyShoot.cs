@@ -59,7 +59,7 @@ public class EnemyShoot : MonoBehaviour
 
     Vector2 GetPlayerPosition()
     {
-        return new Vector2();
+        return GameState.Instance.EnemyTarget.transform.position; ;
     }
 }
 
