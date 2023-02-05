@@ -59,7 +59,6 @@ public class EnemyShoot : MonoBehaviour
 
     Vector2 GetPlayerPosition()
     {
-        // TODO actually get player position
         return new Vector2();
     }
 }
