@@ -141,17 +141,25 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region GETTING ABILITY INPUTS
+        GameState.Instance.DecoyCooldown = 
+            Mathf.Max(0, _decoyCooldown - (Time.time - _lastDecoyTime));
+        GameState.Instance.HackCooldown = 
+            Mathf.Max(0, _hackCooldown - (Time.time - _lastHackTime));
+        GameState.Instance.BarrierCooldown = 
+            Mathf.Max(0, _barrierCooldown - (Time.time - _lastBarrierTime));
         if (Input.GetKey(KeyCode.Q) && Time.time > _lastDecoyTime + _decoyCooldown)
         {
-            Debug.Log("decoy");
+            
             Decoy();
             _lastDecoyTime = Time.time;
         }
+        
         if (Input.GetKey(KeyCode.E) && Time.time > _lastBarrierTime + _barrierCooldown)
         {
             Barrier();
             _lastBarrierTime = Time.time;
         }
+        
         #endregion
     }
 
@@ -186,7 +194,7 @@ public class PlayerController : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject firedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
+        GameObject firedBullet = Instantiate(bullet, barrel.position, Quaternion.identity);
         firedBullet.GetComponent<Rigidbody2D>().velocity = barrel.up * -_fireSpeed;
     }
 
