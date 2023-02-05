@@ -288,9 +288,9 @@ MonoBehaviour:
   _moveInput: {x: 0, y: 0}
   _lookInput: {x: 0, y: 0}
   _lookAngle: 0
-  _moveSpeed: 50
-  _fireSpeed: 10
-  _fireCooldown: 0.3
+  _moveSpeed: 40
+  _fireSpeed: 7
+  _fireCooldown: 0.75
   _hackCooldown: 10
   _decoyCooldown: 15
   _barrierCooldown: 5
