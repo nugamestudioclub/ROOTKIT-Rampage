@@ -12,6 +12,9 @@ public class FolderTransition : MonoBehaviour {
 	private FolderWindow destination;
 	public FolderWindow Destination => destination;
 
+	[SerializeField]
+	private bool isOneWay;
+
 	void Start() {
 		Refresh();
 	}
@@ -21,7 +24,8 @@ public class FolderTransition : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision) {
-		Enter?.Invoke(this, new FolderTransitionEventArgs(this, collision));
+		if( !isOneWay )
+			Enter?.Invoke(this, new FolderTransitionEventArgs(this, collision));
 	}
 
 	private void Refresh() {
