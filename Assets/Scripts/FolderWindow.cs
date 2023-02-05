@@ -6,10 +6,45 @@ using UnityEngine;
 
 public class FolderWindow : MonoBehaviour {
 	[SerializeField]
-	TMP_Text txtWindowCaption;
+	TMP_Text txtCaption;
 
 	[SerializeField]
 	string folderName = "Folder";
+	[SerializeField]
+	private FolderTransition[] transitions;
+
+	public string FolderName => folderName;
+
+	private static bool transitionInProgress;
+
+	void Start() {
+		if( transitions != null )
+			foreach( var transition in transitions )
+				transition.Enter += Transition_Enter;
+
+		Refresh();
+	}
+
+	private void OnDrawGizmos() {
+		Refresh();
+	}
+
+	private static IEnumerator EndTransition() {
+		yield return new WaitForSeconds(0.25f);
+		transitionInProgress = false;
+	}
+
+	private Transform FindDestinationTransform(FolderWindow sourceWindow) {
+		if( TryFindTransition(sourceWindow.FolderName, out var destination) )
+			return destination.transform;
+		else
+			return gameObject.transform;
+	}
+
+	private void Refresh() {
+		if( txtCaption != null )
+			txtCaption.text = folderName;
+	}
 
 	public bool TryFindTransition(string folderName, out FolderTransition transition) {
 		if( transitions == null ) {
@@ -26,21 +61,6 @@ public class FolderWindow : MonoBehaviour {
 		return false;
 	}
 
-	[SerializeField]
-	private FolderTransition[] transitions;
-
-	public string FolderName => folderName;
-
-	void Start() {
-		if( transitions != null )
-			foreach( var transition in transitions )
-				transition.Enter += Transition_Enter;
-
-		Refresh();
-	}
-
-	private static bool transitionInProgress;
-
 	private void Transition_Enter(object sender, FolderTransitionEventArgs e) {
 		if( transitionInProgress )
 			return;
@@ -52,25 +72,5 @@ public class FolderWindow : MonoBehaviour {
 			obj.transform.position = destinationTransform.position;
 			StartCoroutine(EndTransition());
 		}
-	}
-
-	private Transform FindDestinationTransform(FolderWindow sourceWindow) {
-		if( TryFindTransition(sourceWindow.FolderName, out var destination) )
-			return destination.transform;
-		else
-			return gameObject.transform;
-	}
-	private static IEnumerator EndTransition() {
-		yield return new WaitForSeconds(0.25f);
-		transitionInProgress = false;
-	}
-
-	private void OnDrawGizmos() {
-		Refresh();
-	}
-
-	private void Refresh() {
-		if( txtWindowCaption != null )
-			txtWindowCaption.text = folderName;
 	}
 }
