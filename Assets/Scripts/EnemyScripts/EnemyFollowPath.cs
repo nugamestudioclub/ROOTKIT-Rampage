@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
 
-public class EnemyFollowPath : MonoBehaviour
+public class EnemyFollowPath : Enemy
 {
 
     public PathCreator pathCreator;
@@ -13,14 +13,8 @@ public class EnemyFollowPath : MonoBehaviour
     [SerializeField]
     private float _distanceTraveled;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // this.transform.position
-    }
-
     // Update is called once per frame
-    void Update()
+    protected override void EnemyUpdate()
     {
         _distanceTraveled += _speed * Time.deltaTime;
         this.transform.position = pathCreator.path.GetPointAtDistance(_distanceTraveled);

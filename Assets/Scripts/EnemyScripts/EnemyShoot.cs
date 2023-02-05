@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShoot : MonoBehaviour
+public class EnemyShoot : Enemy
 {
     [SerializeField]
     private TargetStyle _targetStyle = TargetStyle.Forward;
@@ -14,18 +14,9 @@ public class EnemyShoot : MonoBehaviour
 
     [SerializeField]
     private float _timer = 0;
-    private Vector2 _bulletVelocity;
-
-    
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
-    void Update()
+    protected override void EnemyUpdate()
     {
         _timer += Time.deltaTime;
         if (_timer > _cooldownTime)
@@ -44,12 +35,10 @@ public class EnemyShoot : MonoBehaviour
                 Vector2 playerPos = GetPlayerPosition();
                 Vector2 thisPos = transform.position;
                 float _targetAngle = Mathf.Atan2(playerPos.y - thisPos.y, playerPos.x - thisPos.x) * Mathf.Rad2Deg - 90;
-                //_bulletVelocity = (thisPos - playerPos).normalized;
                 firedBullet = Instantiate(bullet, this.transform.position, Quaternion.Euler(0, 0, _targetAngle));
                 firedBullet.GetComponent<Rigidbody2D>().velocity = firedBullet.transform.up * _bulletSpeed;
                 break;
             case TargetStyle.Forward:
-                // TODO Figure out how the direction you're facing actually works
                 Quaternion facingDir = transform.rotation;
                 firedBullet = Instantiate(bullet, this.transform.position, this.transform.rotation);
                 firedBullet.GetComponent<Rigidbody2D>().velocity = firedBullet.transform.up;

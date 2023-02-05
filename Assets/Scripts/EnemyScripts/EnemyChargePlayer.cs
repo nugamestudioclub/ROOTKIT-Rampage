@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyChargePlayer : MonoBehaviour
+public class EnemyChargePlayer : Enemy
 {
     [SerializeField]
     private float _chargeSpeed = 2;
@@ -22,7 +22,7 @@ public class EnemyChargePlayer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void EnemyUpdate()
     {
         UpdateStateMachine();
     }
