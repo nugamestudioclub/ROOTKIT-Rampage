@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 6508159816649655455}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,9 +358,14 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
+  decoy: {fileID: 3135623770860038089, guid: 2467e371afa9f5b47b86c75a2df0347f, type: 3}
+  barrier: {fileID: 3666116030178074201, guid: c8c28ec1269317b4683cd3f721cd194f, type: 3}
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  _hackCooldown: 10
+  _decoyCooldown: 15
+  _barrierCooldown: 5
 --- !u!1 &5267810436110897942
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,14 +10,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - geometry
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - barrier
+  - enemy
+  - enemybullet
+  - playerbullet
+  - player
   - 
   - 
   - 
