@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyShoot : Enemy
 {
+    public Sprite bulletSprite;
+    
     [SerializeField]
     private TargetStyle _targetStyle = TargetStyle.Forward;
     [SerializeField]
@@ -36,11 +38,13 @@ public class EnemyShoot : Enemy
                 Vector2 thisPos = transform.position;
                 float _targetAngle = Mathf.Atan2(playerPos.y - thisPos.y, playerPos.x - thisPos.x) * Mathf.Rad2Deg - 90;
                 firedBullet = Instantiate(bullet, this.transform.position, Quaternion.Euler(0, 0, _targetAngle));
+                firedBullet.GetComponent<SpriteRenderer>().sprite = bulletSprite;
                 firedBullet.GetComponent<Rigidbody2D>().velocity = firedBullet.transform.up * _bulletSpeed;
                 break;
             case TargetStyle.Forward:
                 Quaternion facingDir = transform.rotation;
                 firedBullet = Instantiate(bullet, this.transform.position, this.transform.rotation);
+                firedBullet.GetComponent<SpriteRenderer>().sprite = bulletSprite;
                 firedBullet.GetComponent<Rigidbody2D>().velocity = firedBullet.transform.up;
                 break;
         }

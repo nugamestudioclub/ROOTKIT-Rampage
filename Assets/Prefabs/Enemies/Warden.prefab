@@ -121,6 +121,7 @@ MonoBehaviour:
   isStunned: 0
   stunDuration: 5
   stunTimer: 0
+  bulletSprite: {fileID: 1971065863, guid: 21d22d0e85be8254480ad332eef532b4, type: 3}
   _targetStyle: 0
   _bulletSpeed: 5
   _cooldownTime: 1
