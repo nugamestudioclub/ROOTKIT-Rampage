@@ -10,7 +10,7 @@ public class EnemyChargePlayer : Enemy
     private float _chargeTime = 3;
 
     [SerializeField]
-    private float _cooldownTime = 1.5f;
+    private float _cooldownTime = 3;
     [SerializeField]
     private ChargeState _state = ChargeState.Cooldown;
 
@@ -18,7 +18,7 @@ public class EnemyChargePlayer : Enemy
     private float _chargeTimer;
     private Vector2 _playerPos;
     [SerializeField]
-    private float _rotationSpeed = 3;
+    private float _rotationSpeed = .5f;
 
     // Start is called before the first frame update
     void Start()
