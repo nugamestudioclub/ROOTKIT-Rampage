@@ -76,6 +76,7 @@ public class GameState : MonoBehaviour
     {
         ResetPlayerHealth();
         playerDead = false;
+        KeyCount = 0;
     }
 
     public void DamagePlayer(int value)
