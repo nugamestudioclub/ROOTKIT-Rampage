@@ -163,7 +163,7 @@ MonoBehaviour:
   _targetStyle: 0
   _bulletSpeed: 10
   _cooldownTime: 2
-  bullet: {fileID: 2470990887804906141, guid: bad099164e81844448452e58c6d75aed, type: 3}
+  bullet: {fileID: 2470990887804906141, guid: 8dba58855a751ab4a8a6d1b737df5ccd, type: 3}
   _timer: 0
 --- !u!50 &4935834901944648865
 Rigidbody2D:
