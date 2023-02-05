@@ -16,19 +16,16 @@ public class EnemyFollowPath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // this.transform.position
     }
 
     // Update is called once per frame
     void Update()
     {
         _distanceTraveled += _speed * Time.deltaTime;
-        Vector2 thisPos = this.transform.position;
-        Vector2 nextPos = pathCreator.path.GetPointAtDistance(_distanceTraveled);
-        Vector2 alongPath = nextPos - thisPos;
-
-        this.transform.Translate(alongPath);
-        this.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(alongPath.normalized.y, alongPath.normalized.x) * Mathf.Rad2Deg);
-        
+        this.transform.position = pathCreator.path.GetPointAtDistance(_distanceTraveled);
+        Vector3 dir = pathCreator.path.GetDirectionAtDistance(_distanceTraveled);
+        float deg  = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, deg);
     }
 }
