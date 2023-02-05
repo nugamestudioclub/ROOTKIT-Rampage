@@ -125,8 +125,8 @@ MonoBehaviour:
   stunDuration: 5
   stunTimer: 0
   _targetStyle: 1
-  _bulletSpeed: 5
-  _cooldownTime: 0.5
+  _bulletSpeed: 100
+  _cooldownTime: 1
   bullet: {fileID: 2470990887804906141, guid: bad099164e81844448452e58c6d75aed, type: 3}
   _timer: 0
 --- !u!50 &-6288814927103023187
