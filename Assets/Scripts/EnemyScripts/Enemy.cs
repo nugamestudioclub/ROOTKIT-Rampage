@@ -35,4 +35,10 @@ abstract public class Enemy : MonoBehaviour
         stunTimer = 0;
         isStunned = true;
     }
+
+    public void Die()
+    {
+        enabled = false;
+        Destroy(gameObject);
+    }
 }

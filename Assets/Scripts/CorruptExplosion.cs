@@ -32,9 +32,14 @@ public class CorruptExplosion : MonoBehaviour
         if (!hitlist.Contains(collision))
         {
             hitlist.Add(collision);
+            Enemy enemy;
             if (collision.CompareTag("Player"))
             {
                 GameState.Instance.DamagePlayer(damage);
+            }
+            else if (collision.TryGetComponent(out enemy))
+            {
+                enemy.Die();
             }
         }
     }
