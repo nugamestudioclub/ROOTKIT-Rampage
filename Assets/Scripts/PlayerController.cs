@@ -202,6 +202,7 @@ public class PlayerController : MonoBehaviour
     public void Decoy()
     {
         Instantiate(decoy, transform.position, Quaternion.identity);
+        AudioManager.Instance.DecoyBlip();
     }
 
     public void Barrier()
