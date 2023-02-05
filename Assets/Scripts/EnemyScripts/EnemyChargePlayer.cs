@@ -7,17 +7,22 @@ public class EnemyChargePlayer : Enemy
     [SerializeField]
     private float _chargeSpeed = 2;
     [SerializeField]
+    private float _chargeTime = 3;
+
+    [SerializeField]
     private float _cooldownTime = 3;
     [SerializeField]
     private ChargeState _state = ChargeState.Cooldown;
 
-    private float _timer;
+    private float _cooldownTimer; 
+    private float _chargeTimer;
     private Vector2 _playerPos;
 
     // Start is called before the first frame update
     void Start()
     {
-        this._timer = 0;
+        this._cooldownTimer = 0;
+        this._chargeTimer = 0;
         ChangeState(_state);
     }
 
@@ -32,7 +37,7 @@ public class EnemyChargePlayer : Enemy
         switch (_state)
         {
             case ChargeState.Charging:
-                if (Vector2.Distance(_playerPos, transform.position) < Mathf.Epsilon)
+                if (ChargingTimer())
                 {
                     ChangeState(ChargeState.Cooldown);
                 }
@@ -42,7 +47,7 @@ public class EnemyChargePlayer : Enemy
                 }
                 break;
             case ChargeState.Cooldown:
-                if (Timer())
+                if (CooldownTimer())
                 {
                     ChangeState(ChargeState.Charging);
                 }
@@ -58,10 +63,16 @@ public class EnemyChargePlayer : Enemy
     }
 
     // Counts down, returns true if time is finished
-    bool Timer()
+    bool CooldownTimer()
     {
-        this._timer += Time.deltaTime;
-        return _cooldownTime < _timer;
+        this._cooldownTimer += Time.deltaTime;
+        return _cooldownTime < _cooldownTimer;
+    }
+
+   bool ChargingTimer()
+    {
+        this._chargeTimer += Time.deltaTime;
+        return _chargeTime < _chargeTimer;
     }
 
     void ChangeState(ChargeState newState)
@@ -70,10 +81,11 @@ public class EnemyChargePlayer : Enemy
         switch (_state)
         {
             case ChargeState.Charging:
+                this._chargeTimer = 0;
                 this._playerPos = GetPlayerPosition();
                 break;
             case ChargeState.Cooldown:
-                this._timer = 0;
+                this._cooldownTimer = 0;
                 break;
         }
 
