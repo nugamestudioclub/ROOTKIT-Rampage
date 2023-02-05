@@ -163,6 +163,7 @@ MonoBehaviour:
   _chargeTime: 3
   _cooldownTime: 3
   _state: 1
+  _rotationSpeed: 0.5
 --- !u!50 &4803606796197258792
 Rigidbody2D:
   serializedVersion: 4
