@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
 
     public void Barrier()
     {
-        Instantiate(barrier, transform.position, transform.rotation);
+        Instantiate(barrier, transform.position, Quaternion.identity);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
