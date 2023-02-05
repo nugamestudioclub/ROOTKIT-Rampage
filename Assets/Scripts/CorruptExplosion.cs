@@ -22,6 +22,7 @@ public class CorruptExplosion : MonoBehaviour
         remainingLifetime -= Time.deltaTime;
         if (remainingLifetime <= 0)
         {
+            enabled = false;
             Destroy(gameObject);
         }
     }

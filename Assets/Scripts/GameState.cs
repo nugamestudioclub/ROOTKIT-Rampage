@@ -29,7 +29,7 @@ public class GameState : MonoBehaviour
         }
     }
 
-    private GameObject FindPlayer()
+    public GameObject FindPlayer()
     {
         return GameObject.FindWithTag("Player");
     }
