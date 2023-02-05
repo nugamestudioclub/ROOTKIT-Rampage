@@ -57,7 +57,7 @@ public class EnemyShoot : Enemy
     }
     Vector2 GetPlayerPosition()
     {
-        return GameState.Instance.EnemyTarget.transform.position; ;
+        return GameState.Instance.EnemyTarget.transform.position;
     }
 }
 
