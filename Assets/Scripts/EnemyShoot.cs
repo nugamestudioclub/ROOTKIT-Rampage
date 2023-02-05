@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
-
-    [SerializeField]
-    private float _cooldownTime = 3;
     [SerializeField]
     private TargetStyle _targetStyle = TargetStyle.Forward;
+    [SerializeField]
+    private float _bulletSpeed = 5;
+    [SerializeField]
+    private float _cooldownTime = 3;
     public GameObject bullet;
 
     [SerializeField]
     private float _timer = 0;
-    [SerializeField]
-    private float _targetAngle = 0;
+    private Vector2 _bulletVelocity;
 
     
 
@@ -37,20 +37,24 @@ public class EnemyShoot : MonoBehaviour
 
     void Shoot()
     {
-        switch(_targetStyle)
+        GameObject firedBullet;
+        switch (_targetStyle)
         {
             case TargetStyle.Player:
                 Vector2 playerPos = GetPlayerPosition();
                 Vector2 thisPos = transform.position;
-                _targetAngle = Mathf.Atan2(playerPos.y - thisPos.y, playerPos.x - thisPos.x) * Mathf.Rad2Deg;
+                float _targetAngle = Mathf.Atan2(playerPos.y - thisPos.y, playerPos.x - thisPos.x) * Mathf.Rad2Deg - 90;
+                //_bulletVelocity = (thisPos - playerPos).normalized;
+                firedBullet = Instantiate(bullet, this.transform.position, Quaternion.Euler(0, 0, _targetAngle));
+                firedBullet.GetComponent<Rigidbody2D>().velocity = firedBullet.transform.up * _bulletSpeed;
                 break;
             case TargetStyle.Forward:
                 // TODO Figure out how the direction you're facing actually works
                 Quaternion facingDir = transform.rotation;
-                _targetAngle = Mathf.Atan2(facingDir.y, facingDir.x) * Mathf.Rad2Deg;
+                firedBullet = Instantiate(bullet, this.transform.position, this.transform.rotation);
+                firedBullet.GetComponent<Rigidbody2D>().velocity = firedBullet.transform.up;
                 break;
         }
-        GameObject firedBullet = Instantiate(bullet, this.transform.position, this.transform.rotation);
     }
 
     Vector2 GetPlayerPosition()
