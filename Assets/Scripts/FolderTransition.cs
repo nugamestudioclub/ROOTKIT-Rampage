@@ -25,7 +25,10 @@ public class FolderTransition : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collision) {
 		if( !isOneWay )
-			Enter?.Invoke(this, new FolderTransitionEventArgs(this, collision));
+		{
+            Enter?.Invoke(this, new FolderTransitionEventArgs(this, collision));
+        }
+			
 	}
 
 	private void Refresh() {

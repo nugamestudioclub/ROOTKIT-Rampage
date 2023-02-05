@@ -25,6 +25,9 @@ public class GameState : MonoBehaviour
 
     private int keyCount;
 
+    [SerializeField]
+    private float deathFadeoutTimer;
+
     public void CollectKey()
     {
         ++keyCount;
@@ -40,6 +43,8 @@ public class GameState : MonoBehaviour
     private float invincibilityTime = 1;
     private float lastDamage = 0;
 
+    private bool playerDead;
+
     public static GameState Instance { get; private set; }
 
     private GameObject target;
@@ -50,14 +55,8 @@ public class GameState : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
             Instance = this;
-            ResetPlayerHealth();
+            ResetPlayer();
         }
-    }
-    private void Update()
-    {
-        //Debug.Log($"Hack CD {HackCooldown}");
-        //Debug.Log($"Decoy CD {DecoyCooldown}");
-        //Debug.Log($"Barrier CD {BarrierCooldown}");
     }
 
     public GameObject FindPlayer()
@@ -69,14 +68,20 @@ public class GameState : MonoBehaviour
     {
         PlayerHealth = maxPlayerHealth;
     }
+    public void ResetPlayer()
+    {
+        ResetPlayerHealth();
+        playerDead = false;
+    }
 
     public void DamagePlayer(int value)
     {
         if (lastDamage + invincibilityTime < Time.time)
         {
             PlayerHealth -= value;
-            if (PlayerHealth <= 0)
+            if (PlayerHealth <= 0 && !playerDead)
             {
+                playerDead = true;
                 PlayerDie();
             }
             lastDamage = Time.time;
@@ -87,6 +92,18 @@ public class GameState : MonoBehaviour
     public void PlayerDie()
     {
         //TODO Transition to Game over screen
+        Debug.Log($"Player died, reseting in {deathFadeoutTimer}...");
+        PlayerController player = FindPlayer().GetComponent<PlayerController>();
+        player.Die();
+        StartCoroutine(DeathFade());
 
     }
+
+    IEnumerator DeathFade()
+    {
+        yield return new WaitForSeconds(deathFadeoutTimer);
+        TransitionManager.ToGameOver();
+    }
+
+
 }

@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exit: {fileID: 0}
   keysRequired: 3
+  deathFadeoutTimer: 1.5
   maxPlayerHealth: 3
   invincibilityTime: 1
 --- !u!114 &107099348631568771

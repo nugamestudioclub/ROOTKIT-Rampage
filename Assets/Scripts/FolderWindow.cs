@@ -67,7 +67,8 @@ public class FolderWindow : MonoBehaviour {
 
 		var obj = e.Collision.gameObject;
 		if( obj.CompareTag("Player") ) {
-			transitionInProgress = true;
+            GameState.Instance.ResetPlayerHealth();
+            transitionInProgress = true;
 			var destinationTransform = e.Transition.Destination.FindDestinationTransform(this);
 			obj.transform.position = destinationTransform.position;
 			StartCoroutine(EndTransition());

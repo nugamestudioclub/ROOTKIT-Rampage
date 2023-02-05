@@ -40,7 +40,7 @@ public class FolderExit : MonoBehaviour
             return;
         var obj = collision.gameObject;
         if (obj.CompareTag("Player"))
-            Debug.Log("win"); // scene transition
+            TransitionManager.ToWin();
     }
 
     void OnDrawGizmos()

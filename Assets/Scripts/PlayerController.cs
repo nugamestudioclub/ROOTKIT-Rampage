@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _lookInput = new Vector2(0, 1);
         GameState.Instance.EnemyTarget = gameObject;
+        GameState.Instance.ResetPlayer();
         _lastBarrierTime = -_barrierCooldown;
         _lastDecoyTime = -_decoyCooldown;
         _lastHackTime = -_hackCooldown;
@@ -128,10 +129,6 @@ public class PlayerController : MonoBehaviour
         }
         #endregion
 
-        if(Input.GetKey(KeyCode.Backspace)) {
-            Die();
-        }
-
         #region GETTING SHOOT INPUTS
         if(Input.GetKey(KeyCode.Space) && Time.time > _lastFireTime + _fireCooldown)
         {
@@ -163,7 +160,7 @@ public class PlayerController : MonoBehaviour
         #endregion
     }
 
-    void Die() {
+    public void Die() {
         _dead = true;
         Debug.Log("die");
         animator.Play("Dying");
