@@ -19,7 +19,12 @@ public class EnemyShoot : Enemy
     // Update is called once per frame
     protected override void EnemyUpdate()
     {
-        TurnToPlayer();
+        switch (_targetStyle)
+        {
+            case TargetStyle.Player:
+                TurnToPlayer();
+                break;
+        }
         _timer += Time.deltaTime;
         if (_timer > _cooldownTime)
         {
@@ -47,6 +52,7 @@ public class EnemyShoot : Enemy
                 firedBullet.GetComponent<Rigidbody2D>().velocity = firedBullet.transform.up * _bulletSpeed;
                 break;
         }
+
     }
 
     void TurnToPlayer()
@@ -55,6 +61,8 @@ public class EnemyShoot : Enemy
         Vector2 toPlayer = GetPlayerPosition() - thisPos;
         sr.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(toPlayer.y, toPlayer.x) * Mathf.Rad2Deg - 90);
     }
+
+
     Vector2 GetPlayerPosition()
     {
         return GameState.Instance.EnemyTarget.transform.position;
