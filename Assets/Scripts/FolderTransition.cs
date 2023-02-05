@@ -6,9 +6,6 @@ public class FolderTransition : MonoBehaviour {
 	[SerializeField]
 	TMP_Text txtCaption;
 
-	[SerializeField]
-	private FolderTransition[] transitions;
-
 	public event EventHandler<FolderTransitionEventArgs> Enter;
 
 	[SerializeField]
