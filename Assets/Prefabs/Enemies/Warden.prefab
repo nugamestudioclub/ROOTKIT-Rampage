@@ -13,8 +13,10 @@ GameObject:
   - component: {fileID: 4668404761109518152}
   - component: {fileID: 9089247190337668535}
   - component: {fileID: 4801304993122138926}
-  - component: {fileID: 7409642954371981536}
-  m_Layer: 0
+  - component: {fileID: 6120533377013240683}
+  - component: {fileID: 3850617923324174485}
+  - component: {fileID: -8027526760937322970}
+  m_Layer: 7
   m_Name: Warden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,9 +78,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 6b66a44c7d1ea744f8f61840d6b4e581, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.5860481, a: 1}
+  m_SortingOrder: 8
+  m_Sprite: {fileID: 526353492, guid: 9d1589df848ca9542a309c0ec51bdf1d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -119,10 +121,11 @@ MonoBehaviour:
   isStunned: 0
   stunDuration: 5
   stunTimer: 0
+  bulletSprite: {fileID: 1971065863, guid: 21d22d0e85be8254480ad332eef532b4, type: 3}
   _targetStyle: 0
   _bulletSpeed: 5
   _cooldownTime: 1
-  bullet: {fileID: 0}
+  bullet: {fileID: 2470990887804906141, guid: bad099164e81844448452e58c6d75aed, type: 3}
   _timer: 0
 --- !u!50 &4801304993122138926
 Rigidbody2D:
@@ -145,8 +148,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &7409642954371981536
-BoxCollider2D:
+--- !u!95 &6120533377013240683
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631854898581306703}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 33553894ed68fd54b927e3b59043ccfa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!58 &3850617923324174485
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -159,15 +182,21 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.45
+--- !u!58 &-8027526760937322970
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631854898581306703}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.45

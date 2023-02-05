@@ -215,6 +215,11 @@ public class PlayerController : MonoBehaviour
         {
             file.Hack();
         }
+        Enemy enemy;
+        if (collision.TryGetComponent(out enemy))
+        {
+            GameState.Instance.DamagePlayer(1);
+        }
     }
 
     private bool ShouldHack()

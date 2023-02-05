@@ -194,7 +194,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 7
   m_TargetDisplay: 0
 --- !u!114 &210685664
 MonoBehaviour:
@@ -362,5 +362,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtCaption: {fileID: 86343001}
-  transitions: []
   destination: {fileID: 0}

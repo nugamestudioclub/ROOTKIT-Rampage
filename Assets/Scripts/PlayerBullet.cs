@@ -19,35 +19,33 @@ public class PlayerBullet : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _spriteMode = Random.Range(0, 2);
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if(_spriteMode == 0)
+        if (_spriteMode == 0)
         {
             _spriteRenderer.sprite = sprite0;
         }
-        else if(_spriteMode == 1)
+        else if (_spriteMode == 1)
         {
             _spriteRenderer.sprite = sprite1;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    // Update is called once per frame
+    void FixedUpdate()
     {
-        if(collision.gameObject.layer == geometryLayer)
-        {
-            Destroy(gameObject);
-        }
-        /* TODO: Reimplement this once Enemy is a working class
-        if(collision.gameObject.layer == enemyLayer)
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == enemyLayer)
         {
             Enemy enemy;
-            if(collision.gameObject.TryGetComponent<>(out enemy))
+            if (collision.gameObject.TryGetComponent(out enemy))
             {
                 enemy.Stun();
             }
-        }*/
+        }
+
+        Destroy(gameObject);
     }
+
 }

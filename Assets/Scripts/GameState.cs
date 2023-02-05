@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameState : MonoBehaviour
 {
 
-    public GameObject EnemyTarget {
+    public GameObject EnemyTarget
+    {
         get => target;
         set => target = value;
     }
@@ -18,9 +19,15 @@ public class GameState : MonoBehaviour
 
 
 
+
+
     public int PlayerHealth { get; private set; }
     [SerializeField]
     private int maxPlayerHealth = 3;
+
+    [SerializeField]
+    private float invincibilityTime = 1;
+    private float lastDamage = 0;
 
     public static GameState Instance { get; private set; }
 
@@ -32,6 +39,7 @@ public class GameState : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
             Instance = this;
+            ResetPlayerHealth();
         }
     }
     private void Update()
@@ -53,16 +61,21 @@ public class GameState : MonoBehaviour
 
     public void DamagePlayer(int value)
     {
-        PlayerHealth -= value;
-        if (PlayerHealth <= 0 )
+        if (lastDamage + invincibilityTime < Time.time)
         {
-            PlayerDie();
+            PlayerHealth -= value;
+            if (PlayerHealth <= 0)
+            {
+                PlayerDie();
+            }
+            lastDamage = Time.time;
         }
+        
     }
 
     public void PlayerDie()
     {
         //TODO Transition to Game over screen
-        
+
     }
 }
