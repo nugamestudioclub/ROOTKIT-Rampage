@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7459914533981900274}
   - component: {fileID: -2445222799503870481}
   m_Layer: 8
-  m_Name: Enemy Bullet
+  m_Name: Warden Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 9
-  m_Sprite: {fileID: 21300000, guid: bd3b807d012ab584b8fba4bb1411317e, type: 3}
+  m_Sprite: {fileID: 1971065863, guid: 21d22d0e85be8254480ad332eef532b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

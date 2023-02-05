@@ -106,7 +106,7 @@ MonoBehaviour:
   isStunned: 0
   stunDuration: 5
   stunTimer: 0
-  sr: {fileID: 0}
+  sr: {fileID: 2631854898581306702}
   stunRenderer: {fileID: 2027645040389310298}
   _speed: 1
 --- !u!114 &9089247190337668535
@@ -124,12 +124,12 @@ MonoBehaviour:
   isStunned: 0
   stunDuration: 5
   stunTimer: 0
-  sr: {fileID: 0}
-  stunRenderer: {fileID: 0}
+  sr: {fileID: 2631854898581306702}
+  stunRenderer: {fileID: 2027645040389310298}
   _targetStyle: 0
   _bulletSpeed: 5
   _cooldownTime: 1
-  bullet: {fileID: 2470990887804906141, guid: bad099164e81844448452e58c6d75aed, type: 3}
+  bullet: {fileID: 2470990887804906141, guid: 8a952949541ebec4b8891e6c1e6d157c, type: 3}
   _timer: 0
 --- !u!50 &4801304993122138926
 Rigidbody2D:

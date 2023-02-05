@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6944e965db7a34eb15e35e5104b54c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exit: {fileID: 0}
+  keysRequired: 3
   maxPlayerHealth: 3
   invincibilityTime: 1
 --- !u!114 &107099348631568771
@@ -68,6 +70,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 59bf5732eff3a434b9d365f730b67370, type: 3}
   - {fileID: 8300000, guid: 6049d6b461366724e83f1c581da5a598, type: 3}
   - {fileID: 8300000, guid: e3636e20f922bfd42b3bdd28721a2ee5, type: 3}
+  - {fileID: 8300000, guid: 1b7774e138a59b2408820eb8022de03c, type: 3}
+  - {fileID: 8300000, guid: 8cbfd383c125cda43a41aa947627c3fd, type: 3}
+  - {fileID: 8300000, guid: 86bcc508fba8e0f458d179757422b1ef, type: 3}
+  - {fileID: 8300000, guid: 7cbd6a80d231b074d9bb28230ac5ae2d, type: 3}
 --- !u!82 &778153182
 AudioSource:
   m_ObjectHideFlags: 0

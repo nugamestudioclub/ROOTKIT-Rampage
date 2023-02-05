@@ -127,10 +127,10 @@ MonoBehaviour:
   isStunned: 0
   stunDuration: 5
   stunTimer: 0
-  sr: {fileID: 0}
-  stunRenderer: {fileID: 0}
+  sr: {fileID: 3457477744999794689}
+  stunRenderer: {fileID: 6691742627173452152}
   _targetStyle: 1
-  _bulletSpeed: 100
+  _bulletSpeed: 5
   _cooldownTime: 1
   bullet: {fileID: 2470990887804906141, guid: bad099164e81844448452e58c6d75aed, type: 3}
   _timer: 0

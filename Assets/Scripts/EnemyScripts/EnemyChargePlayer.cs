@@ -10,13 +10,15 @@ public class EnemyChargePlayer : Enemy
     private float _chargeTime = 3;
 
     [SerializeField]
-    private float _cooldownTime = 3;
+    private float _cooldownTime = 1.5f;
     [SerializeField]
     private ChargeState _state = ChargeState.Cooldown;
 
     private float _cooldownTimer; 
     private float _chargeTimer;
     private Vector2 _playerPos;
+    [SerializeField]
+    private float _rotationSpeed = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +43,11 @@ public class EnemyChargePlayer : Enemy
                 {
                     ChangeState(ChargeState.Cooldown);
                 }
-                else
+                else if (Vector2.Distance(_playerPos, transform.position) < Mathf.Epsilon)
+                {
+                    TurnToPlayer();
+                }
+                else 
                 {
                     Charge();
                 }
@@ -80,7 +86,8 @@ public class EnemyChargePlayer : Enemy
     {
         Vector2 thisPos = this.transform.position;
         Vector2 toPlayer = GetPlayerPosition() - thisPos;
-        sr.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(toPlayer.y, toPlayer.x) * Mathf.Rad2Deg - 90);
+        Quaternion newRotation = Quaternion.Euler(0, 0, Mathf.Atan2(toPlayer.y, toPlayer.x) * Mathf.Rad2Deg - 90);
+        sr.transform.rotation = Quaternion.Lerp(sr.transform.rotation, newRotation, _rotationSpeed * Time.deltaTime);
     }
 
     void ChangeState(ChargeState newState)

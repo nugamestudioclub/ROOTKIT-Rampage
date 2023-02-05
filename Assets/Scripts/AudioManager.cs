@@ -53,4 +53,14 @@ public class AudioManager : MonoBehaviour
     {
         _audioSource.PlayOneShot(_clips[6]);
     }
+
+    public void Shoot()
+    {
+        _audioSource.PlayOneShot(_clips[8]);
+    }
+    
+    public void DecoyBlip()
+    {
+        _audioSource.PlayOneShot(_clips[10]);
+    }
 }

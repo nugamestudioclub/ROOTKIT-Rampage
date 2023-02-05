@@ -196,17 +196,18 @@ public class PlayerController : MonoBehaviour
     {
         GameObject firedBullet = Instantiate(bullet, barrel.position, Quaternion.identity);
         firedBullet.GetComponent<Rigidbody2D>().velocity = barrel.up * -_fireSpeed;
-        AudioManager.Instance.Balloon();
+        AudioManager.Instance.Shoot();
     }
 
     public void Decoy()
     {
-        Instantiate(decoy, transform.position, transform.rotation);
+        Instantiate(decoy, transform.position, Quaternion.identity);
+        AudioManager.Instance.DecoyBlip();
     }
 
     public void Barrier()
     {
-        Instantiate(barrier, transform.position, transform.rotation);
+        Instantiate(barrier, transform.position, Quaternion.identity);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
