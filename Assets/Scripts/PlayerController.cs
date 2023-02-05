@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour
     {
         GameObject firedBullet = Instantiate(bullet, barrel.position, Quaternion.identity);
         firedBullet.GetComponent<Rigidbody2D>().velocity = barrel.up * -_fireSpeed;
-        AudioManager.Instance.Balloon();
+        AudioManager.Instance.Shoot();
     }
 
     public void Decoy()
