@@ -53,7 +53,7 @@ public class EnemyChargePlayer : Enemy
     void Charge()
     {
         Vector2 thisPos = this.transform.position;
-        Vector2 nextPos = Vector2.MoveTowards(thisPos, GetPlayerPosition(), _chargeSpeed * Time.deltaTime);
+        Vector2 nextPos = Vector2.MoveTowards(thisPos, _playerPos, _chargeSpeed * Time.deltaTime);
         this.transform.Translate(nextPos - thisPos);
     }
 
