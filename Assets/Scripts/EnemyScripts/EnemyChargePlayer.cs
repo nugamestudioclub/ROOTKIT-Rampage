@@ -9,15 +9,15 @@ public class EnemyChargePlayer : Enemy
     [SerializeField]
     private float _cooldownTime = 3;
     [SerializeField]
-    private ChargeState _state = ChargeState.Charging;
+    private ChargeState _state = ChargeState.Cooldown;
 
-    [SerializeField]
     private float _timer;
     private Vector2 _playerPos;
 
     // Start is called before the first frame update
     void Start()
     {
+        this._timer = 0;
         ChangeState(_state);
     }
 
