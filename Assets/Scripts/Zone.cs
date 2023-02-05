@@ -27,10 +27,12 @@ public class Zone : MonoBehaviour
             hasPlayer = true;
             PutEnemiesToSleep(false);
         }
-        else if (obj.TryGetComponent<Enemy>(out var enemy))
+        else
         {
-            enemies.Add(enemy);
+            foreach (var enemy in obj.GetComponents<Enemy>())
+                enemies.Add(enemy);
         }
+        
     }
 
     void OnTriggerExit2D(Collider2D collision)
