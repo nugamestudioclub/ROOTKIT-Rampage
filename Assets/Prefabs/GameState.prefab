@@ -49,8 +49,8 @@ MonoBehaviour:
   exit: {fileID: 0}
   keysRequired: 3
   deathFadeoutTimer: 1.5
-  maxPlayerHealth: 5
-  invincibilityTime: 1
+  maxPlayerHealth: 50
+  invincibilityTime: 0.75
 --- !u!114 &107099348631568771
 MonoBehaviour:
   m_ObjectHideFlags: 0
