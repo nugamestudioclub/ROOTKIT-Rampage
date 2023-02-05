@@ -7,9 +7,12 @@ public class PlayerController : MonoBehaviour
 {
     public Transform rotator;
     public Transform barrel;
+    public Transform self;
 
     public GameObject bullet;
-    
+    public GameObject decoy;
+    public GameObject barrier;
+
     private Rigidbody2D _rb;
 
     [SerializeField]
@@ -31,12 +34,30 @@ public class PlayerController : MonoBehaviour
     private float _xLookInput;
     private float _yLookInput;
     private float _lastFireTime;
-    
+
+    [SerializeField]
+    private float _hackCooldown = 10;
+    private float _lastHackTime;
+    [SerializeField]
+    private float _decoyCooldown = 15;
+    private float _lastDecoyTime;
+    [SerializeField]
+    private float _barrierCooldown = 5;
+    private float _lastBarrierTime;
+
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
+        self = gameObject.GetComponent<Transform>();
+        animator = gameObject.GetComponent<Animator>();
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _lookInput = new Vector2(0, 1);
+        GameState.Instance.EnemyTarget = gameObject;
+        _lastBarrierTime = -_barrierCooldown;
+        _lastDecoyTime = -_decoyCooldown;
+        _lastHackTime = -_hackCooldown;
     }
 
     private void Update()
@@ -69,6 +90,7 @@ public class PlayerController : MonoBehaviour
         }
 
         _moveInput = new Vector2(_xMoveInput, _yMoveInput).normalized;
+
         #endregion
 
         #region GETTING LOOK INPUTS
@@ -111,6 +133,20 @@ public class PlayerController : MonoBehaviour
             _lastFireTime = Time.time;
         }
         #endregion
+
+        #region GETTING ABILITY INPUTS
+        if (Input.GetKey(KeyCode.Q) && Time.time > _lastDecoyTime + _decoyCooldown)
+        {
+            Debug.Log("decoy");
+            Decoy();
+            _lastDecoyTime = Time.time;
+        }
+        if (Input.GetKey(KeyCode.E) && Time.time > _lastBarrierTime + _barrierCooldown)
+        {
+            Barrier();
+            _lastBarrierTime = Time.time;
+        }
+        #endregion
     }
 
     // Update is called once per framew
@@ -120,15 +156,53 @@ public class PlayerController : MonoBehaviour
         _rb.AddForce(_moveInput * _moveSpeed);
         #endregion
 
+
         #region LOOKING
-        _lookAngle = Mathf.Atan2(_lookInput.x, -_lookInput.y) * Mathf.Rad2Deg;
+        _lookAngle = Mathf.Atan2(_lookInput.y, _lookInput.x) * Mathf.Rad2Deg + 90;
         rotator.rotation = Quaternion.Euler(0, 0, _lookAngle);
+        self.rotation = Quaternion.Euler(0, 0, _lookAngle + 180);
         #endregion
+
+        if(_moveInput.magnitude > 0.1) {
+            animator.Play("Running");
+        } else {
+            animator.Play("Idle");
+        }
     }
 
     public void Shoot()
     {
         GameObject firedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
         firedBullet.GetComponent<Rigidbody2D>().velocity = barrel.up * -_fireSpeed;
+    }
+
+    public void Decoy()
+    {
+        Instantiate(decoy, transform.position, transform.rotation);
+    }
+
+    public void Barrier()
+    {
+        Instantiate(barrier, transform.position, transform.rotation);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        FileObstacle file;
+        if (ShouldHack() && collision.TryGetComponent(out file))
+        {
+            file.Hack();
+        }
+    }
+
+    private bool ShouldHack()
+    {
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+            && Time.time > _lastHackTime + _hackCooldown)
+        {
+            _lastHackTime = Time.time;
+            return true;
+        }
+        return false;
     }
 }
