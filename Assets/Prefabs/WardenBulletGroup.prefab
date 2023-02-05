@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9120463570745533791}
   - component: {fileID: 379957129381520482}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WardenBulletGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}

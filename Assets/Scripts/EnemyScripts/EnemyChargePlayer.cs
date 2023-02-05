@@ -108,7 +108,10 @@ public class EnemyChargePlayer : Enemy
 
     Vector2 GetPlayerPosition()
     {
-        return GameState.Instance.EnemyTarget.transform.position;
+        var target = GameState.Instance.EnemyTarget;
+        return target == null
+            ? transform.position
+            : target.transform.position;
     }
 }
 

@@ -15,7 +15,10 @@ abstract public class Enemy : MonoBehaviour
     public SpriteRenderer stunRenderer;
 
     public bool Asleep { get; set; }
-
+    private void Awake()
+    {
+        Asleep = true;
+    }
     // Update is called once per frame
     void Update()
     {

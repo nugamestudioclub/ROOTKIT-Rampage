@@ -210,8 +210,10 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         FileObstacle file;
+        Debug.Log($"should hack?: {ShouldHack()}");
         if (ShouldHack() && collision.TryGetComponent(out file))
         {
+            _lastHackTime = Time.time;
             file.Hack();
             AudioManager.Instance.DialUp();
         }
@@ -227,7 +229,7 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             && Time.time > _lastHackTime + _hackCooldown)
         {
-            _lastHackTime = Time.time;
+       
             return true;
         }
         return false;
