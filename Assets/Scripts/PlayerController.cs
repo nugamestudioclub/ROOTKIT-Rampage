@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -66,11 +67,11 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         #region GETTING MOVEMENT INPUTS
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             _yMoveInput = 1;
         }
-        else if(Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S))
         {
             _yMoveInput = -1;
         }
@@ -79,11 +80,11 @@ public class PlayerController : MonoBehaviour
             _yMoveInput = 0;
         }
 
-        if(Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             _xMoveInput = 1;
         }
-        else if(Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             _xMoveInput = -1;
         }
@@ -123,14 +124,14 @@ public class PlayerController : MonoBehaviour
             _xLookInput = 0;
         }
 
-        if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
         {
             _lookInput = new Vector2(_xLookInput, _yLookInput).normalized;
         }
         #endregion
 
         #region GETTING SHOOT INPUTS
-        if(Input.GetKey(KeyCode.Space) && Time.time > _lastFireTime + _fireCooldown)
+        if (Input.GetKey(KeyCode.Space) && Time.time > _lastFireTime + _fireCooldown)
         {
             Shoot();
             _lastFireTime = Time.time;
@@ -138,29 +139,30 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region GETTING ABILITY INPUTS
-        GameState.Instance.DecoyCooldown = 
+        GameState.Instance.DecoyCooldown =
             Mathf.Max(0, _decoyCooldown - (Time.time - _lastDecoyTime));
-        GameState.Instance.HackCooldown = 
+        GameState.Instance.HackCooldown =
             Mathf.Max(0, _hackCooldown - (Time.time - _lastHackTime));
-        GameState.Instance.BarrierCooldown = 
+        GameState.Instance.BarrierCooldown =
             Mathf.Max(0, _barrierCooldown - (Time.time - _lastBarrierTime));
         if (Input.GetKey(KeyCode.Q) && Time.time > _lastDecoyTime + _decoyCooldown)
         {
-            
+
             Decoy();
             _lastDecoyTime = Time.time;
         }
-        
+
         if (Input.GetKey(KeyCode.E) && Time.time > _lastBarrierTime + _barrierCooldown)
         {
             Barrier();
             _lastBarrierTime = Time.time;
         }
-        
+
         #endregion
     }
 
-    public void Die() {
+    public void Die()
+    {
         _dead = true;
         Debug.Log("die");
         animator.Play("Dying");
@@ -169,7 +171,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per framew
     void FixedUpdate()
     {
-        if(_dead) return;
+        if (_dead) return;
 
         #region MOVEMENT
         _rb.AddForce(_moveInput * _moveSpeed);
@@ -182,10 +184,29 @@ public class PlayerController : MonoBehaviour
         self.rotation = Quaternion.Euler(0, 0, _lookAngle + 180);
         #endregion
 
-        if(_moveInput.magnitude > 0.1) {
+        if (_moveInput.magnitude > 0.1)
+        {
             animator.Play("Running");
-        } else {
-                animator.Play("Idle");
+            PlayMoveSound();
+        }
+        else
+        {
+            animator.Play("Idle");
+        }
+    }
+
+    [SerializeField]
+    private int moveWaitMs = 1000;
+
+    private DateTime lastMoveTime;
+
+    private void PlayMoveSound()
+    {
+        var now = DateTime.Now;
+        if (now >= lastMoveTime.AddMilliseconds(moveWaitMs))
+        {
+            AudioManager.Instance.Move();
+            lastMoveTime = now;
         }
     }
 
@@ -229,7 +250,7 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             && Time.time > _lastHackTime + _hackCooldown)
         {
-       
+
             return true;
         }
         return false;

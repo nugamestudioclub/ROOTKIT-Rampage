@@ -63,4 +63,14 @@ public class AudioManager : MonoBehaviour
     {
         _audioSource.PlayOneShot(_clips[10]);
     }
+
+    public void Damage()
+    {
+        _audioSource.PlayOneShot(_clips[3]);
+    }
+
+    public void Move()
+    {
+        _audioSource.PlayOneShot(_clips[11]);
+    }
 }
