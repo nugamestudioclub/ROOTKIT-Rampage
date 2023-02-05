@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyShoot : Enemy
 {
     public Sprite bulletSprite;
+    public bool animatedBulletSprite;
     
     [SerializeField]
     private TargetStyle _targetStyle = TargetStyle.Forward;
@@ -38,12 +39,16 @@ public class EnemyShoot : Enemy
                 Vector2 thisPos = transform.position;
                 float _targetAngle = Mathf.Atan2(playerPos.y - thisPos.y, playerPos.x - thisPos.x) * Mathf.Rad2Deg - 90;
                 firedBullet = Instantiate(bullet, this.transform.position, Quaternion.Euler(0, 0, _targetAngle));
+                if(animatedBulletSprite == true) { firedBullet.GetComponent<Animator>().enabled = true; }
+                if (animatedBulletSprite == false) { firedBullet.GetComponent<Animator>().enabled = false; }
                 firedBullet.GetComponent<SpriteRenderer>().sprite = bulletSprite;
                 firedBullet.GetComponent<Rigidbody2D>().velocity = firedBullet.transform.up * _bulletSpeed;
                 break;
             case TargetStyle.Forward:
                 Quaternion facingDir = transform.rotation;
                 firedBullet = Instantiate(bullet, this.transform.position, this.transform.rotation);
+                if (animatedBulletSprite == true) { firedBullet.GetComponent<Animator>().enabled = true; }
+                if (animatedBulletSprite == false) { firedBullet.GetComponent<Animator>().enabled = false; }
                 firedBullet.GetComponent<SpriteRenderer>().sprite = bulletSprite;
                 firedBullet.GetComponent<Rigidbody2D>().velocity = firedBullet.transform.up;
                 break;
