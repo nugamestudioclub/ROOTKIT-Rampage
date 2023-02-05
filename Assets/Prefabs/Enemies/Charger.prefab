@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStunned: 0
-  stunDuration: 5
+  stunDuration: 3
   stunTimer: 0
   sr: {fileID: 2086016687012937495}
   stunRenderer: {fileID: 6697896411277813829}

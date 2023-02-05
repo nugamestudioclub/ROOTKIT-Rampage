@@ -130,6 +130,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2187998509151279863, guid: b19f39eb8a48d6d4f92ff46c45f6fee4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187998509151279863, guid: b19f39eb8a48d6d4f92ff46c45f6fee4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187998509151279863, guid: b19f39eb8a48d6d4f92ff46c45f6fee4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187998509151279863, guid: b19f39eb8a48d6d4f92ff46c45f6fee4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5603291610153725235, guid: b19f39eb8a48d6d4f92ff46c45f6fee4, type: 3}
       propertyPath: m_Name
       value: WinCanvas
