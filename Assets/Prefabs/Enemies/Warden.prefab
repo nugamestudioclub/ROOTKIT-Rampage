@@ -124,8 +124,8 @@ MonoBehaviour:
   isStunned: 0
   stunDuration: 5
   stunTimer: 0
-  sr: {fileID: 0}
-  stunRenderer: {fileID: 0}
+  sr: {fileID: 2631854898581306702}
+  stunRenderer: {fileID: 2027645040389310298}
   _targetStyle: 0
   _bulletSpeed: 5
   _cooldownTime: 1
