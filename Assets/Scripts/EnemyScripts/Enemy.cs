@@ -11,6 +11,8 @@ abstract public class Enemy : MonoBehaviour
     [SerializeField]
     private float stunTimer;
 
+    public SpriteRenderer sr;
+
     // Update is called once per frame
     void Update()
     {
