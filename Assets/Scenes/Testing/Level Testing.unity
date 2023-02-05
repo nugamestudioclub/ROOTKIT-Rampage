@@ -198,7 +198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtCaption: {fileID: 0}
-  transitions: []
   destination: {fileID: 0}
 --- !u!114 &384876497 stripped
 MonoBehaviour:
