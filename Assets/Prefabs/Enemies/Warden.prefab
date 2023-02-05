@@ -106,6 +106,8 @@ MonoBehaviour:
   isStunned: 0
   stunDuration: 5
   stunTimer: 0
+  sr: {fileID: 0}
+  stunRenderer: {fileID: 2027645040389310298}
   _speed: 1
 --- !u!114 &9089247190337668535
 MonoBehaviour:
@@ -122,8 +124,8 @@ MonoBehaviour:
   isStunned: 0
   stunDuration: 5
   stunTimer: 0
-  bulletSprite: {fileID: 1971065863, guid: 21d22d0e85be8254480ad332eef532b4, type: 3}
-  animatedBulletSprite: 1
+  sr: {fileID: 0}
+  stunRenderer: {fileID: 0}
   _targetStyle: 0
   _bulletSpeed: 5
   _cooldownTime: 1
@@ -219,7 +221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &93985989031022450
 Transform:
   m_ObjectHideFlags: 0
@@ -242,7 +244,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7238783076062660956}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

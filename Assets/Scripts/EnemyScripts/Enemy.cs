@@ -12,6 +12,7 @@ abstract public class Enemy : MonoBehaviour
     private float stunTimer;
 
     public SpriteRenderer sr;
+    public SpriteRenderer stunRenderer;
 
     // Update is called once per frame
     void Update()
@@ -19,6 +20,10 @@ abstract public class Enemy : MonoBehaviour
         if (!isStunned)
         {
             EnemyUpdate();
+            if (stunRenderer != null)
+            {
+                stunRenderer.enabled = false;
+            }
         }
         else
         {
@@ -26,6 +31,10 @@ abstract public class Enemy : MonoBehaviour
             if (stunTimer >= stunDuration)
             {
                 isStunned = false;
+            }
+            if(stunRenderer != null)
+            {
+                stunRenderer.enabled = true;
             }
         }
     }
@@ -36,6 +45,7 @@ abstract public class Enemy : MonoBehaviour
     {
         stunTimer = 0;
         isStunned = true;
+        AudioManager.Instance.Stun();
     }
 
     public void Die()

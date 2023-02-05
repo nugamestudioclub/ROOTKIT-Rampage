@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8694638571787425699
 Transform:
   m_ObjectHideFlags: 0
@@ -40,7 +40,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633658230641423044}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -157,6 +157,8 @@ MonoBehaviour:
   isStunned: 0
   stunDuration: 5
   stunTimer: 0
+  sr: {fileID: 2086016687012937495}
+  stunRenderer: {fileID: 6697896411277813829}
   _chargeSpeed: 7
   _chargeTime: 3
   _cooldownTime: 3
