@@ -17,9 +17,20 @@ public class GameState : MonoBehaviour
     public float DecoyCooldown { get; set; }
     public float BarrierCooldown { get; set; }
 
+    [SerializeField]
+    private FolderExit exit;
 
+    [SerializeField]
+    private int keysRequired;
 
+    private int keyCount;
 
+    public void CollectKey()
+    {
+        ++keyCount;
+        if (exit != null)
+            exit.Locked = keyCount < keysRequired;
+    }
 
     public int PlayerHealth { get; private set; }
     [SerializeField]
@@ -70,7 +81,7 @@ public class GameState : MonoBehaviour
             }
             lastDamage = Time.time;
         }
-        
+
     }
 
     public void PlayerDie()

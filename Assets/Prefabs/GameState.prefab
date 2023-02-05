@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6944e965db7a34eb15e35e5104b54c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exit: {fileID: 0}
+  keysRequired: 3
   maxPlayerHealth: 3
   invincibilityTime: 1
 --- !u!114 &107099348631568771
