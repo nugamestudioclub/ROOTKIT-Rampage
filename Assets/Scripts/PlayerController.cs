@@ -201,7 +201,7 @@ public class PlayerController : MonoBehaviour
 
     public void Decoy()
     {
-        Instantiate(decoy, transform.position, transform.rotation);
+        Instantiate(decoy, transform.position, Quaternion.identity);
     }
 
     public void Barrier()
