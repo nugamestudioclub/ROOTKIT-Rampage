@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
+    private bool _dying = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -126,6 +128,10 @@ public class PlayerController : MonoBehaviour
         }
         #endregion
 
+        if(Input.GetKey(KeyCode.Backspace)) {
+            Die();
+        }
+
         #region GETTING SHOOT INPUTS
         if(Input.GetKey(KeyCode.Space) && Time.time > _lastFireTime + _fireCooldown)
         {
@@ -149,6 +155,12 @@ public class PlayerController : MonoBehaviour
         #endregion
     }
 
+    void Die() {
+        _dying = true;
+        Debug.Log("die");
+        animator.Play("Dying");
+    }
+
     // Update is called once per framew
     void FixedUpdate()
     {
@@ -166,7 +178,9 @@ public class PlayerController : MonoBehaviour
         if(_moveInput.magnitude > 0.1) {
             animator.Play("Running");
         } else {
-            animator.Play("Idle");
+            if(!_dying) {
+                animator.Play("Idle");
+            }
         }
     }
 
