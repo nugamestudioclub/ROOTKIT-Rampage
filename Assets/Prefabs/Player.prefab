@@ -212,7 +212,7 @@ Transform:
   m_GameObject: {fileID: 5267810435370575411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.8406103, y: 2.8680043, z: 2.0094705}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5267810434223952846}
@@ -283,12 +283,17 @@ MonoBehaviour:
   barrel: {fileID: 5267810436110897941}
   self: {fileID: 0}
   bullet: {fileID: 2470990887804906141, guid: e936d28b1ba3cd64cab9aa441985b327, type: 3}
+  decoy: {fileID: 0}
+  barrier: {fileID: 0}
   _moveInput: {x: 0, y: 0}
   _lookInput: {x: 0, y: 0}
   _lookAngle: 0
   _moveSpeed: 50
   _fireSpeed: 10
   _fireCooldown: 0.3
+  _hackCooldown: 10
+  _decoyCooldown: 15
+  _barrierCooldown: 5
 --- !u!212 &275494911619985052
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -358,14 +363,9 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
-  decoy: {fileID: 3135623770860038089, guid: 2467e371afa9f5b47b86c75a2df0347f, type: 3}
-  barrier: {fileID: 3666116030178074201, guid: c8c28ec1269317b4683cd3f721cd194f, type: 3}
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  _hackCooldown: 10
-  _decoyCooldown: 15
-  _barrierCooldown: 5
 --- !u!1 &5267810436110897942
 GameObject:
   m_ObjectHideFlags: 0
