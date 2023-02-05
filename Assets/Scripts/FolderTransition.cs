@@ -1,9 +1,40 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
+public class FolderTransition : MonoBehaviour {
+	[SerializeField]
+	TMP_Text txtCaption;
+
+	[SerializeField]
+	private FolderTransition[] transitions;
+
+	public event EventHandler<FolderTransitionEventArgs> Enter;
+
+	[SerializeField]
+	private FolderWindow destination;
+	public FolderWindow Destination => destination;
+
+	void Start() {
+		Refresh();
+	}
+
+	private void OnDrawGizmos() {
+		Refresh();
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision) {
+		Enter?.Invoke(this, new FolderTransitionEventArgs(this, collision));
+	}
+
+	private void Refresh() {
+		if( txtCaption != null && destination != null )
+			txtCaption.text = destination.FolderName;
+	}
+}
+
 public class FolderTransitionEventArgs : EventArgs {
+
 	private readonly FolderTransition transition;
 	public FolderTransition Transition => transition;
 
@@ -17,17 +48,5 @@ public class FolderTransitionEventArgs : EventArgs {
 			throw new ArgumentNullException(nameof(collision));
 		this.transition = transition;
 		this.collision = collision;
-	}
-}
-
-public class FolderTransition : MonoBehaviour {
-	public event EventHandler<FolderTransitionEventArgs> Enter;
-
-	[SerializeField]
-	private FolderWindow destination;
-	public FolderWindow Destination => destination;
-	
-	private void OnTriggerEnter2D(Collider2D collision) {
-		Enter?.Invoke(this, new FolderTransitionEventArgs(this, collision));
 	}
 }

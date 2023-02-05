@@ -360,5 +360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd1e3fab7033f44797ba939214ab0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtWindowCaption: {fileID: 1071831066}
+  txtCaption: {fileID: 1071831066}
   folderName: Folder Name
+  transitions: []

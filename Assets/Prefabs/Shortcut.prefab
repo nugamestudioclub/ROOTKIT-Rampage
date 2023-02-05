@@ -361,4 +361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7499c9f4b9a5ec24c86b158e0a4c763e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  txtCaption: {fileID: 86343001}
+  transitions: []
   destination: {fileID: 0}
