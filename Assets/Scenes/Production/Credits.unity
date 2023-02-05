@@ -130,6 +130,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3346071020797314968, guid: 0ca6872393a00a1459a6c37087277575, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346071020797314968, guid: 0ca6872393a00a1459a6c37087277575, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346071020797314968, guid: 0ca6872393a00a1459a6c37087277575, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346071020797314968, guid: 0ca6872393a00a1459a6c37087277575, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972353824184198565, guid: 0ca6872393a00a1459a6c37087277575, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972353824184198565, guid: 0ca6872393a00a1459a6c37087277575, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972353824184198565, guid: 0ca6872393a00a1459a6c37087277575, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972353824184198565, guid: 0ca6872393a00a1459a6c37087277575, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5603291610153725235, guid: 0ca6872393a00a1459a6c37087277575, type: 3}
       propertyPath: m_Name
       value: CreditsCanvas
@@ -217,6 +249,12 @@ PrefabInstance:
     - target: {fileID: 5603291610153725239, guid: 0ca6872393a00a1459a6c37087277575, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068539609239042586, guid: 0ca6872393a00a1459a6c37087277575, type: 3}
+      propertyPath: m_text
+      value: "    Brendan Brassil\n    Jordan Brown\n    Sebastian Kobori\n    Matt
+        Lord\n    Tommy Morriss\n    Joshua Sun\n  \n       Desktop Wallpapers by
+        Stable Diffusion"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ca6872393a00a1459a6c37087277575, type: 3}
