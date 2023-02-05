@@ -44,7 +44,7 @@ public class EnemyShoot : Enemy
             case TargetStyle.Forward:
                 Quaternion facingDir = transform.rotation;
                 firedBullet = Instantiate(bullet, this.transform.position, this.transform.rotation);
-                firedBullet.GetComponent<Rigidbody2D>().velocity = firedBullet.transform.up;
+                firedBullet.GetComponent<Rigidbody2D>().velocity = firedBullet.transform.up * _bulletSpeed;
                 break;
         }
     }
