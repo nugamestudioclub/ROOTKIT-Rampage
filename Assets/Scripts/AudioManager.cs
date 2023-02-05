@@ -73,4 +73,9 @@ public class AudioManager : MonoBehaviour
     {
         _audioSource.PlayOneShot(_clips[11]);
     }
+
+    public void Barrier()
+    {
+        _audioSource.PlayOneShot(_clips[12]);
+    }
 }

@@ -7,13 +7,13 @@ public class Barrier : MonoBehaviour
     [SerializeField]
     private float lifetime = 5f;
     private float remainingLifetime;
-    // Start is called before the first frame update
+
     void Start()
     {
         remainingLifetime = lifetime;
+        AudioManager.Instance.Barrier();
     }
 
-    // Update is called once per frame
     void Update()
     {
         remainingLifetime -= Time.deltaTime;
