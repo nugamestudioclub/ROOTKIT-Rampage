@@ -47,6 +47,7 @@ public class EnemyChargePlayer : Enemy
                 }
                 break;
             case ChargeState.Cooldown:
+                TurnToPlayer();
                 if (CooldownTimer())
                 {
                     ChangeState(ChargeState.Charging);
@@ -73,6 +74,13 @@ public class EnemyChargePlayer : Enemy
     {
         this._chargeTimer += Time.deltaTime;
         return _chargeTime < _chargeTimer;
+    }
+
+    void TurnToPlayer()
+    {
+        Vector2 thisPos = this.transform.position;
+        Vector2 toPlayer = GetPlayerPosition() - thisPos;
+        sr.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(toPlayer.y, toPlayer.x) * Mathf.Rad2Deg - 90);
     }
 
     void ChangeState(ChargeState newState)

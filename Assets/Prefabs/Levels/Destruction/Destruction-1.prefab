@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7437316258972425867}
   m_LocalRotation: {x: -0, y: -0, z: -0.70710576, w: 0.70710784}
-  m_LocalPosition: {x: 4.3999996, y: 1.84, z: 2.005463}
+  m_LocalPosition: {x: 4.4000015, y: 1.8400002, z: 2.005463}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -142,7 +142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8660063412813629747}
   m_LocalRotation: {x: -0, y: -0, z: -0.70710576, w: 0.70710784}
-  m_LocalPosition: {x: -3.6000004, y: 2.75, z: 2.005463}
+  m_LocalPosition: {x: -3.5999985, y: 2.75, z: 2.005463}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -680,10 +680,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3784458521559968155, guid: c95c773ab5b1f4742b5827e439b34b61, type: 3}
       propertyPath: transitions.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3784458521559968155, guid: c95c773ab5b1f4742b5827e439b34b61, type: 3}
       propertyPath: transitions.Array.data[0]
+      value: 
+      objectReference: {fileID: 7013095919310212257}
+    - target: {fileID: 3784458521559968155, guid: c95c773ab5b1f4742b5827e439b34b61, type: 3}
+      propertyPath: transitions.Array.data[1]
       value: 
       objectReference: {fileID: 912643931876604667}
     - target: {fileID: 7021086738644487368, guid: c95c773ab5b1f4742b5827e439b34b61, type: 3}
@@ -1392,6 +1396,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3d86c5cbd3ecd34ba0ea54262539cad, type: 3}
+--- !u!114 &7013095919310212257 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4950660299684977911, guid: d3d86c5cbd3ecd34ba0ea54262539cad, type: 3}
+  m_PrefabInstance: {fileID: 2731365850125701206}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7499c9f4b9a5ec24c86b158e0a4c763e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &9011213014213703724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6406793484551170170, guid: d3d86c5cbd3ecd34ba0ea54262539cad, type: 3}

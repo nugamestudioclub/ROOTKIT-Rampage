@@ -39,6 +39,11 @@ public class AudioManager : MonoBehaviour
         _audioSource.PlayOneShot(_clips[0]);
     }
 
+    public void Stun()
+    {
+        _audioSource.PlayOneShot(_clips[1]);
+    }
+
     public void DialUp()
     {
         _audioSource.PlayOneShot(_clips[5]);
