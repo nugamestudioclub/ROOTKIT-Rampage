@@ -506,6 +506,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3784458521559968155, guid: c95c773ab5b1f4742b5827e439b34b61, type: 3}
+      propertyPath: transitions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784458521559968155, guid: c95c773ab5b1f4742b5827e439b34b61, type: 3}
+      propertyPath: transitions.Array.data[0]
+      value: 
+      objectReference: {fileID: 912643931876604667}
     - target: {fileID: 7021086738644487368, guid: c95c773ab5b1f4742b5827e439b34b61, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1784,7 +1792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4914850644464945125, guid: 77c942c0d9c3176469aa52468d50b21a, type: 3}
       propertyPath: m_Name
-      value: Shortcut
+      value: 1-->2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77c942c0d9c3176469aa52468d50b21a, type: 3}
@@ -1793,6 +1801,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4914850644464945124, guid: 77c942c0d9c3176469aa52468d50b21a, type: 3}
   m_PrefabInstance: {fileID: 5232991783071612176}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &912643931876604667 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4914850644464945131, guid: 77c942c0d9c3176469aa52468d50b21a, type: 3}
+  m_PrefabInstance: {fileID: 5232991783071612176}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7499c9f4b9a5ec24c86b158e0a4c763e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5755320741607291335
 PrefabInstance:
   m_ObjectHideFlags: 0
