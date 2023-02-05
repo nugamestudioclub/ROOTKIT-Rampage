@@ -110,7 +110,7 @@ MonoBehaviour:
   stunRenderer: {fileID: 6691742627173452152}
   pathCreator: {fileID: 0}
   _pathInstruction: 1
-  _speed: 3
+  _speed: 1
   _distanceTraveled: 0
 --- !u!114 &-7672703416323434498
 MonoBehaviour:
@@ -130,7 +130,7 @@ MonoBehaviour:
   sr: {fileID: 3457477744999794689}
   stunRenderer: {fileID: 6691742627173452152}
   _targetStyle: 1
-  _bulletSpeed: 5
+  _bulletSpeed: 4
   _cooldownTime: 1
   bullet: {fileID: 2470990887804906141, guid: bad099164e81844448452e58c6d75aed, type: 3}
   _timer: 0
