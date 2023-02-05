@@ -2725,7 +2725,7 @@ PrefabInstance:
     - target: {fileID: 5021785674160661820, guid: 035c95ae498816a469cb436e7aae8e58, type: 3}
       propertyPath: transitions.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1276612472}
     - target: {fileID: 5602578000353405291, guid: 035c95ae498816a469cb436e7aae8e58, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.46
@@ -2817,6 +2817,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9dd1e3fab7033f44797ba939214ab0a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1276612472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5881029222164864486, guid: 035c95ae498816a469cb436e7aae8e58, type: 3}
+  m_PrefabInstance: {fileID: 1276612470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7499c9f4b9a5ec24c86b158e0a4c763e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1333931347 stripped
