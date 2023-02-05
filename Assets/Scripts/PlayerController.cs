@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public Transform rotator;
     public Transform barrel;
+    public Transform self;
 
     public GameObject bullet;
     public GameObject decoy;
@@ -44,9 +45,13 @@ public class PlayerController : MonoBehaviour
     private float _barrierCooldown = 5;
     private float _lastBarrierTime;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
+        self = gameObject.GetComponent<Transform>();
+        animator = gameObject.GetComponent<Animator>();
         _rb = gameObject.GetComponent<Rigidbody2D>();
         _lookInput = new Vector2(0, 1);
         GameState.Instance.EnemyTarget = gameObject;
@@ -85,6 +90,7 @@ public class PlayerController : MonoBehaviour
         }
 
         _moveInput = new Vector2(_xMoveInput, _yMoveInput).normalized;
+
         #endregion
 
         #region GETTING LOOK INPUTS
@@ -158,16 +164,23 @@ public class PlayerController : MonoBehaviour
         _rb.AddForce(_moveInput * _moveSpeed);
         #endregion
 
+
         #region LOOKING
-        _lookAngle = Mathf.Atan2(_lookInput.x, -_lookInput.y) * Mathf.Rad2Deg;
+        _lookAngle = Mathf.Atan2(_lookInput.y, _lookInput.x) * Mathf.Rad2Deg + 90;
         rotator.rotation = Quaternion.Euler(0, 0, _lookAngle);
+        self.rotation = Quaternion.Euler(0, 0, _lookAngle + 180);
         #endregion
 
+        if(_moveInput.magnitude > 0.1) {
+            animator.Play("Running");
+        } else {
+            animator.Play("Idle");
+        }
     }
 
     public void Shoot()
     {
-        GameObject firedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
+        GameObject firedBullet = Instantiate(bullet, barrel.position, Quaternion.identity);
         firedBullet.GetComponent<Rigidbody2D>().velocity = barrel.up * -_fireSpeed;
     }
 
