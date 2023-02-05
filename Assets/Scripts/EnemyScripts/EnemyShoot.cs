@@ -30,6 +30,7 @@ public class EnemyShoot : Enemy
 
     void Shoot()
     {
+        AudioManager.Instance.Balloon();
         GameObject firedBullet;
         switch (_targetStyle)
         {
