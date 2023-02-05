@@ -157,6 +157,8 @@ MonoBehaviour:
   isStunned: 0
   stunDuration: 5
   stunTimer: 0
+  bulletSprite: {fileID: 21300000, guid: bd3b807d012ab584b8fba4bb1411317e, type: 3}
+  animatedBulletSprite: 0
   _targetStyle: 0
   _bulletSpeed: 10
   _cooldownTime: 2
