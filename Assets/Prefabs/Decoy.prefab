@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3135623770860038070}
   - component: {fileID: 4494547792594424619}
-  m_Layer: 0
+  - component: {fileID: 7342310851075480603}
+  m_Layer: 10
   m_Name: Decoy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,6 +46,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a290ba51b4c4dd4cb0d44d4e0e56fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifetime: 5
+--- !u!58 &7342310851075480603
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3135623770860038089}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &5466683477218648686
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1894847831527376546}
   - component: {fileID: 1881570567612445001}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
