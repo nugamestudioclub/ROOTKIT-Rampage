@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1757736606}
   - component: {fileID: 1757736605}
   - component: {fileID: 7119731249628124187}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5267810434223952846}
   - component: {fileID: 2330177779286226324}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 5267810435370575413}
   - component: {fileID: 275494911619985052}
   - component: {fileID: 6508159816649655455}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -283,8 +283,8 @@ MonoBehaviour:
   barrel: {fileID: 5267810436110897941}
   self: {fileID: 0}
   bullet: {fileID: 2470990887804906141, guid: e936d28b1ba3cd64cab9aa441985b327, type: 3}
-  decoy: {fileID: 0}
-  barrier: {fileID: 0}
+  decoy: {fileID: 3135623770860038089, guid: 2467e371afa9f5b47b86c75a2df0347f, type: 3}
+  barrier: {fileID: 3666116030178074201, guid: c8c28ec1269317b4683cd3f721cd194f, type: 3}
   _moveInput: {x: 0, y: 0}
   _lookInput: {x: 0, y: 0}
   _lookAngle: 0
@@ -376,7 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5267810436110897941}
   - component: {fileID: 5267810436110897940}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
