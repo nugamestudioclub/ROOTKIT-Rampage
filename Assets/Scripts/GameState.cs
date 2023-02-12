@@ -18,8 +18,7 @@ public class GameState : MonoBehaviour
     public float DecoyCooldown { get; set; }
     public float BarrierCooldown { get; set; }
 
-    [SerializeField]
-    private FolderExit exit;
+    public FolderExit Exit { get; set; }
 
     [SerializeField]
     private int keysRequired;
@@ -32,11 +31,11 @@ public class GameState : MonoBehaviour
     [SerializeField]
     private float deathFadeoutTimer;
 
-    public void CollectKey()
+	public void CollectKey()
     {
         ++KeyCount;
-        if (exit != null)
-            exit.Locked = KeyCount < keysRequired;
+        if (Exit != null)
+            Exit.Locked = KeyCount < keysRequired;
     }
 
     public int PlayerHealth { get; private set; }
