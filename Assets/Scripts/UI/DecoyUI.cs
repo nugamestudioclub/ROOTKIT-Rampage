@@ -18,7 +18,7 @@ public class DecoyUI : MonoBehaviour
 
         if (Mathf.Approximately(GameState.Instance.DecoyCooldown, 0))
         {
-            text.text = $"DECOY: READY";
+            text.text = $"DECOY: PRESS Q";
         }
         else
         {

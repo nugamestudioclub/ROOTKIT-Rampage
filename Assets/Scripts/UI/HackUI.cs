@@ -18,7 +18,7 @@ public class HackUI : MonoBehaviour
         
         if (Mathf.Approximately(GameState.Instance.HackCooldown, 0) )
         {
-            text.text = $"HACK: READY";
+            text.text = $"HACK: PRESS R";
         } else
         {
             int cd = (int)GameState.Instance.HackCooldown;

@@ -18,7 +18,7 @@ public class BarrierUI : MonoBehaviour
 
         if (Mathf.Approximately(GameState.Instance.BarrierCooldown, 0))
         {
-            text.text = $"SHIELD: READY";
+            text.text = $"SHIELD: PRESS E";
         }
         else
         {

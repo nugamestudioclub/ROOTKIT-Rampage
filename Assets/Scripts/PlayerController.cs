@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     private bool _dead = false;
+    private bool _aiming = false;
+    private bool _shooting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -124,18 +126,21 @@ public class PlayerController : MonoBehaviour
             _xLookInput = 0;
         }
 
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.UpArrow) 
+            || Input.GetKey(KeyCode.DownArrow) 
+            || Input.GetKey(KeyCode.RightArrow) 
+            || Input.GetKey(KeyCode.LeftArrow))
         {
             _lookInput = new Vector2(_xLookInput, _yLookInput).normalized;
+            if (Time.time > _lastFireTime + _fireCooldown)
+            {
+                _aiming = true;
+            }
         }
         #endregion
 
         #region GETTING SHOOT INPUTS
-        if (Input.GetKey(KeyCode.Space) && Time.time > _lastFireTime + _fireCooldown)
-        {
-            Shoot();
-            _lastFireTime = Time.time;
-        }
+
         #endregion
 
         #region GETTING ABILITY INPUTS
@@ -147,15 +152,12 @@ public class PlayerController : MonoBehaviour
             Mathf.Max(0, _barrierCooldown - (Time.time - _lastBarrierTime));
         if (Input.GetKey(KeyCode.Q) && Time.time > _lastDecoyTime + _decoyCooldown)
         {
-
             Decoy();
-            _lastDecoyTime = Time.time;
         }
 
         if (Input.GetKey(KeyCode.E) && Time.time > _lastBarrierTime + _barrierCooldown)
         {
             Barrier();
-            _lastBarrierTime = Time.time;
         }
 
         #endregion
@@ -182,6 +184,20 @@ public class PlayerController : MonoBehaviour
         _lookAngle = Mathf.Atan2(_lookInput.y, _lookInput.x) * Mathf.Rad2Deg + 90;
         rotator.rotation = Quaternion.Euler(0, 0, _lookAngle);
         self.rotation = Quaternion.Euler(0, 0, _lookAngle + 180);
+
+        if (_aiming)
+        {
+            if (_shooting)
+            {
+                Shoot();
+                _aiming = false;
+                _shooting = false;
+            }
+            else
+            {
+                _shooting = true;
+            }
+        }
         #endregion
 
         if (_moveInput.magnitude > 0.1)
@@ -215,17 +231,20 @@ public class PlayerController : MonoBehaviour
         GameObject firedBullet = Instantiate(bullet, barrel.position, Quaternion.identity);
         firedBullet.GetComponent<Rigidbody2D>().velocity = barrel.up * -_fireSpeed;
         AudioManager.Instance.Shoot();
+        _lastFireTime = Time.time;
     }
 
     public void Decoy()
     {
         Instantiate(decoy, transform.position, Quaternion.identity);
         AudioManager.Instance.DecoyBlip();
+        _lastDecoyTime = Time.time;
     }
 
     public void Barrier()
     {
         Instantiate(barrier, transform.position, Quaternion.identity);
+        _lastBarrierTime = Time.time;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -247,7 +266,7 @@ public class PlayerController : MonoBehaviour
 
     private bool ShouldHack()
     {
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        if (Input.GetKey(KeyCode.R)
             && Time.time > _lastHackTime + _hackCooldown)
         {
 
